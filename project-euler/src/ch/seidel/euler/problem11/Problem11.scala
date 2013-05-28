@@ -2,7 +2,8 @@ package ch.seidel.euler.problem11
 
 object Problem11 {
   
-  type Candidate = List[((Int, Int), Int)]
+  type Coord = (Int, Int)
+  type Candidate = List[(Coord, Int)]
   type Matrix = List[List[Int]]
   
   def parse(grid: String) = 
@@ -30,7 +31,7 @@ object Problem11 {
       Set()
   
   private def product(intcells: Candidate) = 
-    intcells.foldLeft(1)((sum, tupel) => sum * tupel._2)
+    intcells.foldLeft(1)((pr, tupel) => pr * tupel._2)
  
   private def biggerOf(one: Candidate, other: Candidate) = 
     if(product(one) > product(other)) one else other
