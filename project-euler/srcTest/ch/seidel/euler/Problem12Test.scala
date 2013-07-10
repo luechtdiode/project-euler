@@ -42,6 +42,6 @@ class Problem12Test extends FunSuite {
   }
 
   test("What is the value of the first triangle number to have over five hundred divisors?") {
-    assert(76576500 === findTriangle(500))
+    println("The solution of problem12 = " + findTriangle(500))
   }
 }

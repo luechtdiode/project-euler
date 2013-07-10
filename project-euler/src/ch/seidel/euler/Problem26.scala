@@ -7,7 +7,7 @@ object Problem26 {
   case class Fraction(numerator: Long, denominator: Long, visual: String, recurringCycle: String)
   
   /**
-   * general poor & simple highschool-approach:
+   * general poor & simple high-school-approach:
    * 1 / 7         = 0.        | n * 10
    * 10 / 7        = 0.1       | 1 * 7 = 7, 10 - 7 = 3   => write 1, keep rest 3
    *  3 / 7        = 0.1       | n * 10

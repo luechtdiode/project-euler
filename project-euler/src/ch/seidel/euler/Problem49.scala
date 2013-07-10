@@ -40,11 +40,10 @@ object Problem49 {
    * @return List of digits from the given number
    */
   def digitsOf(n: Int): List[Int] = {
-    if(n > 9) {
-      val d = n % 10
-      d +: digitsOf(n / 10)
-    }
-    else List(n)
+    if(n > 9)
+      digitsOf(n / 10) :+ n % 10
+    else 
+      List(n)
   }
 
   /**

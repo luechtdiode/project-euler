@@ -50,5 +50,6 @@ class Problem49Test extends FunSuite {
     assert(true === (isPrime(p1) && p1 + 3330 == p2))
     assert(true === (isPrime(p2) && p2 + 3330 == p3))
     assert(true === isPrime(p3))
+    println("The solution of problem49 = " + solution)
   }
 }
