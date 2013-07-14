@@ -25,6 +25,9 @@ package ch.seidel.euler
  *       ......................................
  *        20                 [???]
  *                
+ *    (a + b) * (a + b) * (a + b)
+ *    
+ *    a^3 + 6ab + b^3
  * How many such routes are there through a 20×20 grid?
  * 
  */
@@ -56,7 +59,7 @@ object Problem15 {
     }
   }
   
-  //// beyond - the search-paths algo: (but not efficient enought)
+  //// beyond - the search-paths algo: (but not efficient enough)
   
   type Direction = Int
   val Right: Direction = 1
@@ -96,7 +99,7 @@ object Problem15 {
   
   def solveBySearching(size: Int): Long = findPaths(size, Node(0,0, None))
   
-  //// and another way, using collection permutation feature:
+  //// and another way, using collection permutation feature: (also too inefficiency)
   
   def permutations(n: Int): Long = {
     val rights = (1 to n) map (_ => Move(Right)) toList
@@ -107,4 +110,16 @@ object Problem15 {
   
   def solveByCollPerms(size: Int) = permutations(size)
   
+  
+  //// there is also a relatively direct way to compute the solution over the 
+  //// central binomial coefficient ((2n)! / (n!) ^ 2). 
+  //// BUT: The factorial intermediate result exceeds the range of the 
+  //// Long-Datatype, so there is the BigInt needed (witch isn't necessary 
+  //// by the pascal-function)
+  
+  def factorial(n: Int): BigInt = 
+    if(n > 0) n * factorial(n-1) else 1
+    
+  def solveByFactorial(size: Int): Long = 
+    (factorial(2 * size) / factorial(size).pow(2)).toLong
 }

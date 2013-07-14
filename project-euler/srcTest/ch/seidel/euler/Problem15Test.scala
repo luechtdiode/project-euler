@@ -45,7 +45,24 @@ class Problem15Test extends FunSuite {
   test("solveByCollPerms 10 == 184756") {
     assert(solveByCollPerms(10) === 184756)
   }
-  
+  test("factorial 4") {
+    assert(factorial(4) === 24)
+  }
+  test("solveByFactorial 2 == 6") {
+    assert(solveByFactorial(2) === 6)
+  }
+  test("solveByFactorial 3 == 20") {
+    assert(solveByFactorial(3) === 20)
+  }
+  test("solveByFactorial 4 == 70") {
+    assert(solveByFactorial(4) === 70)
+  }
+  test("solveByFactorial 10 == 184756") {
+    assert(solveByFactorial(10) === 184756)
+  }
+  test("solveByFactorial 16 == 601080390") {
+    assert(solveByFactorial(16) === 601080390)
+  }
   
   test("Final Solution") {
     println("The solution of problem15 = " + solve(20))  
