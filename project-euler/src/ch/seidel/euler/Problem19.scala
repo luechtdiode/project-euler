@@ -73,10 +73,10 @@ object Problem19 {
       if(wdg == SUNDAY)
     } yield {
       // compare to Keith's and Zeller's value
-      if(wdg != wdk || wdg != wdz) {
-        faults += 1
-        println(faults + ". Diff: " + (d,m,y) + " Cal=" + wdg + " " + cal.getTime() + " Keith=" + wdk + " Zeller=" + wdz)
-      }
+//      if(wdg != wdk || wdg != wdz) {
+//        faults += 1
+//        println(faults + ". Diff: " + (d,m,y) + " Cal=" + wdg + " " + cal.getTime() + " Keith=" + wdk + " Zeller=" + wdz)
+//      }
       (d,m,y)
     }
     sundays.size
