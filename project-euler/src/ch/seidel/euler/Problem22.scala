@@ -1,8 +1,8 @@
 package ch.seidel.euler
 
 import java.util.Scanner
-
 import scala.collection.immutable.Stream.consWrapper
+import scala.collection.immutable.SortedSet
 
 /**
  * Names Score
@@ -19,30 +19,23 @@ import scala.collection.immutable.Stream.consWrapper
  * 
  */
 object Problem22 {
-  val charOrder: Map[Char,Int] = 
-    ('A' to 'Z').foldLeft(Map[Char,Int]()) { 
-      (m, c) => m + (c -> (c.asDigit-9))
-    }
-  
   def calculate(acc: (Int, Int), name: String) = acc match {
-    case (score, idx) => (score + (name map charOrder sum) * idx, idx + 1)
+    case (score, idx) => (score + (name map(_.asDigit -9) sum) * idx, idx + 1)
   }
 
   def parseNames(filename: String): Stream[String] = {
-    val f = getClass().getResourceAsStream(filename)
-    val s = new Scanner(f)
-    s.useDelimiter(",")
-	
-    def streamed(in: Stream[String]): Stream[String] = {
-	  if(s.hasNext()) {
-	    val text = s.next
-	    val name = text.drop(1).take(text.length()-2)
+    val scan = new Scanner(getClass().getResourceAsStream(filename)) useDelimiter ","
+    
+	// wraps the JDK Scanner to the Stream-API
+    def streamed(implicit in: Stream[String] = Stream.empty): Stream[String] = {
+	  if(scan.hasNext) {
+	    val name = scan.next.drop(1).dropRight(1) // cut the \" quotes
 	    name #:: streamed(in)
 	  } 
 	  else in
     }
     
-    streamed(Stream[String]())
+    streamed
   }
 
   def solve(filename: String) = {
