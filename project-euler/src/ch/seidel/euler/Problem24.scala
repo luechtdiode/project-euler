@@ -38,5 +38,5 @@ object Problem24 {
     }
   }
   
-  def solve(n: Long) = lexicalPermutations("", startDigits, n)
+  def solve(nth: Long) = lexicalPermutations("", startDigits, nth)
 }
