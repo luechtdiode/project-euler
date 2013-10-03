@@ -24,7 +24,7 @@ object Problem24 {
 
   @tailrec
   def lexicalPermutations(acc: String, digits: List[Int], reminder: Long): String = {
-    println(acc + digits.mkString("[", " ", "]"))
+    //println(acc + digits.mkString("[", " ", "]"))
     if(digits.isEmpty) 
       acc
     else {
@@ -32,7 +32,7 @@ object Problem24 {
       val f = factorial(p)
       val (index, value, k) = (0 to p).map(i => (i, digits(i), i * f)).filter {case (_,_,k) => k < reminder}.last
       val rest = reminder - k
-      println(reminder + " = " + index + "(" + p + "!) + " + rest)
+      //println(reminder + " = " + index + "(" + p + "!) + " + rest)
       
       lexicalPermutations(acc + value, digits.take(index) ::: digits.drop(index+1), rest)
     }
