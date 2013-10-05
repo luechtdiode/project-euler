@@ -11,8 +11,8 @@ class Problem32Test extends FunSuite {
     assert(31 === valueOfDigits(List(3,1)))
     assert(13 === valueOfDigits(List(1,3)))
   }
-  test("isPandigital") {
-    assert(isPandigital(List(3), List(9), List(1,8,6,7,2,5,4)) === 7254)
+  test("searchPandigitalProduct") {
+    assert(searchPandigitalProduct(List(3), List(9), List(1,8,6,7,2,5,4)) === 7254)
   }
   test("simple test") {
     assert(8 === solve(Set(2,4,8)))

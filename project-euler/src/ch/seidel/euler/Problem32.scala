@@ -30,7 +30,7 @@ object Problem32 {
   def valueOfDigits(d: List[Int]): Int = d.foldLeft(0)((product, n) => product * 10 + n)
     
   @tailrec
-  def isPandigital(m1: List[Int], m2: List[Int], rest: List[Int]): Int = {
+  def searchPandigitalProduct(m1: List[Int], m2: List[Int], rest: List[Int]): Int = {
     if(rest.isEmpty)
       0
     else {
@@ -41,12 +41,12 @@ object Problem32 {
         p
       }
       else {
-        if(rest.size > 1) {
-          isPandigital(m1, m2 :+ rest.head, rest.tail) 
+        if(rest.size > m2.size * 2) {
+          searchPandigitalProduct(m1, m2 :+ rest.head, rest.tail) 
         }
         else {
           val newrest = m2.tail ::: rest
-          isPandigital(m1 :+ m2.head, newrest.take(1), newrest.drop(1)) 
+          searchPandigitalProduct(m1 :+ m2.head, newrest.take(1), newrest.drop(1)) 
         }
       }
     }
@@ -55,7 +55,7 @@ object Problem32 {
   def solve(digits: Set[Int]) = 
     if(digits.size > 2)
       digits.toList.permutations.map(l => 
-        isPandigital(l.take(1), l.drop(1).take(1), l.drop(2))
+        searchPandigitalProduct(l.take(1), l.drop(1).take(1), l.drop(2))
       ).toSet sum
     else
       0
