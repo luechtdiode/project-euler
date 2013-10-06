@@ -1,7 +1,5 @@
 package ch.seidel.euler
 
-import scala.annotation.tailrec
-
 /**
  * Digit canceling fractions
  * Problem 33
