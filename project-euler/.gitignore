@@ -1,4 +1,6 @@
-/target
-/.cache
+project/target
+target
+.cache
 
 .worksheet
+.class
